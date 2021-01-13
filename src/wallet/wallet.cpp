@@ -1979,9 +1979,9 @@ bool CWallet::GetMasternodeVinAndKeys(CTxIn& txinRet, CPubKey& pubKeyRet, CKey& 
     // Masternode collateral value
     if (txOut.nValue != CMasternode::GetMasternodeCollateral(chainActive.Height())) {
         strError = "Invalid collateral tx value, must be 200,000 SAPP";
-        returnerror("%s: tx %s, index %d not a masternode collateral", __func__, strTxHash, nOutputIndex);
+        return error("%s: tx %s, index %d not a masternode collateral", __func__, strTxHash, nOutputIndex);
     }
-    
+
     // Check availability
     int nDepth = 0;
     if (!CheckTXAvailability(&wtx, true, false, nDepth)) {
