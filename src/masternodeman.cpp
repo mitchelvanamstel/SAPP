@@ -854,10 +854,7 @@ void ThreadCheckMasternodes()
             MilliSleep(1000);
             boost::this_thread::interruption_point();
             // try to sync from all available nodes, one step at a time
-            {
-                LOCK(cs_main);
-                masternodeSync.Process();
-            }
+            masternodeSync.Process();
 
             if (masternodeSync.IsBlockchainSynced()) {
                 c++;
