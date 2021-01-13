@@ -242,7 +242,6 @@ void CMasternodeMan::AskForMN(CNode* pnode, const CTxIn& vin)
 
 void CMasternodeMan::Check()
 {
-    LOCK(cs_main);
     LOCK(cs);
 
     for (CMasternode& mn : vMasternodes) {
